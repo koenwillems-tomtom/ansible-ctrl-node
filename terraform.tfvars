@@ -1,2 +1,2 @@
-resource_prefix = "azsrvuc-ansible-ctrl-01"
+resource_prefix = "azsrvuc-ansible-ctrl01"
 node_count=1

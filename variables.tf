@@ -35,7 +35,7 @@ variable "tags-acc" {
    }
 }
 variable "vm-name" {
-   default = "azsrvuc-ansible-ctrl-0"
+   default = "azsrvuc-ansible-ctrl01"
 }
 variable "data-disk-name" {
    default = "data"
