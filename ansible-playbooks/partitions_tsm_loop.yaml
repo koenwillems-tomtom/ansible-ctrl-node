@@ -34,4 +34,4 @@
         unit: 12%
         label: gpt
         loop:
-          - /dev/sdm
+          - /dev/sdn
