@@ -1,0 +1,37 @@
+---
+- name: playbook for partitions
+  hosts: TSM02
+  become: true
+  tasks:
+    - name: create stg partition
+      parted:
+        device: "{{ item }}"
+        number: 1
+        flags: [ lvm ]
+        state: present
+        part_end: 100%
+        label: gpt
+      loop:
+        - /dev/sdm
+        - /dev/sdk
+        - /dev/sdh
+        - /dev/sdo
+        - /dev/sdi
+        - /dev/sdl
+        - /dev/sdj
+        - /dev/sdd
+        - /dev/sdg
+        - /dev/sde
+        - /dev/sdc
+        - /dev/sdf
+
+   - name: create db partition
+      parted:
+        device: "{{ item }}"
+        number: 8
+        flags: [ lvm ]
+        state: present
+        unit: 12%
+        label: gpt
+        loop:
+          - /dev/sdm

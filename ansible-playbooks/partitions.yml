@@ -1,0 +1,48 @@
+---
+- name: playbook for partitions
+  hosts: TSM02
+  become: true
+  tasks:
+    - name: create partition
+      parted:
+        device: /dev/sdh
+        number: 1
+        flags: [ lvm ]
+        state: present
+        part_end: 64GB
+
+    - name: Install lvm2 dependency
+      package:
+        name: lvm2
+        state: present
+
+    - name: task for creating volume group
+      lvg:
+          vg: vg_nlsrvuctsm02
+          pvs: /dev/sdh1
+          pesize: 16
+
+    - name: task for creating logical volume
+      lvol:
+          vg: vg_nlsrvuctsm02
+          lv:  tsm1
+          size: 100%FREE
+          force: yes
+
+    - name: Create directory data1 if does not exist
+      file:
+        path: /tsm/tsmams31/home
+        state: directory
+        mode: '0755'
+
+    - name: format the ext4 filesystem
+      filesystem:
+        fstype: ext4
+        dev: /dev/vg_nlsrvuctsm02/tsm1
+
+    - name: mount the lv on /tsm/tsmams31/home
+      mount:
+        path: /tsm/tsmams31/home
+        src: /dev/vg_nlsrvuctsm02/tsm1
+        fstype: ext4
+        state: mounted
