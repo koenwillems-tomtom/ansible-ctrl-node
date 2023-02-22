@@ -1,0 +1,19 @@
+---
+- name: playbook for partitions
+  hosts: TSM02
+  become: true
+  tasks:
+    - name: get contents of disks.txt
+      command: "cat /home/azureuser/disks.txt"
+      delegate_to: localhost
+      register: _disks
+
+    - name: create stg partition
+      parted:
+        device: "{{ item }}"
+        number: 1
+        flags: [ lvm ]
+        state: present
+        part_end: 100%
+        label: gpt
+      loop: "{{ _disks.stdout_lines }}"
