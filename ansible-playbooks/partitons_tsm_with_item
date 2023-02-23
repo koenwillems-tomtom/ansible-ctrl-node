@@ -25,3 +25,11 @@
      - {device: /dev/sdc, number: 1}
      - {device: /dev/sdf, number: 1}
      
+     - device: /dev/sdn
+       number: "{{ (item | int | abs) + 1 }}"
+       name: "disk{{ (item | int | abs) + 1 }}"
+       part_start: "{{ (item | int | abs) * 12.5 }}%"
+       part_end: "{{ (item | int | abs) * 12.5 + 12.5 }}%"
+       unit: "%"
+       state: present
+       with_sequence: start=0 count=8

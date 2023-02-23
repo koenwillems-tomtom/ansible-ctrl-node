@@ -12,8 +12,7 @@ variable "adminaccount" {
    type        = map(string)
    default     = {
       user = "azureuser"
-      public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCh+JxWidxhmWMqWCEeCZp22LXuktljzldz6wRkrytRBvfPFo4qDkJZbCQYbOemhOX8NMsAzs/Dssieu0FnfXluyv5rWj5FNzeo+IggBeOgOk4Qplq7VeGQYFcEXAzU6pEIYqXTp3rHW/1otGxc9/xU5ViLgFfE5Ou4QHEK+SoyGBPovetU+TU9oTZt5x0o+qeP3wzOpNPaj3NojRlGUvQ4z2HPWuzcJAutPzL+Xl2rFVYj8jCgzZNrgqwa5VFSs2IsaGXOysJ8f0oWajYgpuBSWjzNhS0IU63r55gAX4MwmCvjg8LRyva3Yx8+Vnsm7ajHhBmIdA14whoiUcYLx1R/HT0/7nwHq/uTGWI8ghvrBPXl5sgS6tyRM/a72tN5ud2+bKB9b33xgYu5wCtSRN8iPm8672Y+Ep0KCEu+qEopsZE9F/Lhh4cJZuDon6ns/QPzuOYe9PwTw8RnD3MaJ3cNLa+8mg1Kw1qM5ZG7MNFsTesMBpwxptrp3/MjkC8GJO9/ebxe9nZCHDvNDrbNqmGKjsUQuC1rGW5W4T1l6OY+CkwAEYbEnvo7HSDL/aDMcMmvOOYN+Q9pNa2QVe9i2MVMJ+t1cuOgFloZAQT/PLi1fz4TLRUZoYZNb2dHgCl2Fhp0q8JPDCXNOfAJTKZrdqX/Dwurg3GmxPYRaPzuzERe0w== rsa-key-20220406"
-   }
+      public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCjiobznwG0BQXIx2CzMRVIQFYPDmZQFF77pub/CA83Ml5YP5y3Seb8nVUrGIwUtenfqmp1v8lPsBr78ay/iWi1G49+/iV6rZtsLK2YmXI8e9SMiYeq9MHEbNN0iMZzZ5oS9IMvaxDtH7sagFpAxpdORvvmXq70jVIhRvLX+8I9J2FmA4+MWoOYqTaOblWBIlZxdtrcwiERoO21rV+ACFnW8ZQNAzK8+4s7Q3KFr7QL3mDLaHOOzF5/JHcOm/QfLKtxhQ5imPFNMBjZz531AtB+/RP0u32Moo5KB052oepsdxJ55v9FYoaZFecSp3afCErLjwJu1u2pPsm2Lolw+j19 rsa-key-20230223"    }
 }
 
 variable "source_image_id" {
